@@ -4,5 +4,16 @@
   "defaultSiteUrl": "https://theguysaccount.github.io/pres2028-citizen-game",
   "repoUrl": "https://github.com/theguysaccount/pres2028-citizen-game",
   "indexNowKey": "300473e419da3a24ea46e2db80c60d9e",
-  "moreGames": []
+  "moreGames": [
+    {
+      "name": "Speed Run Heaven",
+      "url": "https://theguysaccount.github.io/speed-run-heaven-civic-game/",
+      "blurb": "One citizen, one mandate: a speedrunnable incremental about an automated future that belongs to everyone."
+    },
+    {
+      "name": "Coagulation Corp",
+      "url": "https://theguysaccount.github.io/coagulation-corp-incremental-game/",
+      "blurb": "A two-act satirical incremental about the attention economy and the AI race, with ten endings."
+    }
+  ]
 }
