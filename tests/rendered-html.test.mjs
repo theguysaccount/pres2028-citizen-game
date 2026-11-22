@@ -57,8 +57,10 @@ test("the game page is server-rendered with the whole game on it", () => {
 });
 
 test("no page links to a real campaign or uses its slogans", () => {
+  // The site's own address may be one of the portfolio names (ifwewerepresident.com); its self-links are not a campaign link.
+  const own = new URL(canonical(read(DIST, "index.html"))).host;
   for (const file of [...PAGES, "404.html"]) {
-    const html = read(DIST, file);
+    const html = read(DIST, file).split(own).join("");
     assert.doesNotMatch(html, /pres20(28|32)\.(com|org)|ifwewerepresident|president28|save america|donate|volunteer sign-?up|register to vote/i, `${file} stays fictional`);
   }
 });
