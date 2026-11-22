@@ -1,0 +1,43 @@
+{
+  "name": "pres2028-citizen",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PRES2028: Citizen. A free, fictional incremental strategy game: grow a party-less citizen campaign from one door knock to 270 electoral votes.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "map": "node scripts/make-map.mjs",
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "node --test tests/engine.test.ts",
+    "test:html": "node --test tests/rendered-html.test.mjs",
+    "test": "npm run typecheck && npm run test:unit && npm run build && npm run test:html",
+    "e2e": "node scripts/e2e.mjs",
+    "serve": "node scripts/serve.mjs",
+    "screens": "node scripts/screens.mjs",
+    "check:live": "node scripts/check-live.mjs"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@fontsource-variable/geist": "5.3.0",
+    "@fontsource-variable/geist-mono": "5.3.0",
+    "@types/d3-geo": "3.1.1",
+    "@types/geojson": "7946.0.16",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/topojson-client": "3.1.5",
+    "@types/topojson-specification": "1.0.5",
+    "d3-geo": "3.1.2",
+    "esbuild": "0.28.2",
+    "topojson-client": "3.1.0",
+    "typescript": "5.9.3",
+    "us-atlas": "3.0.1"
+  }
+}

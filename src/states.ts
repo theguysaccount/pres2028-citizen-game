@@ -1,0 +1,63 @@
+// Electoral votes by state for the 2024 and 2028 presidential elections (the apportionment that followed the
+// 2020 Census), 538 in all, 270 to win. Source: U.S. National Archives, "Distribution of Electoral Votes",
+// https://www.archives.gov/electoral-college/allocation
+// `fips` is the two-digit state code used by the us-atlas map.
+
+export type StateInfo = { fips: string; abbr: string; name: string; ev: number };
+
+export const STATES: StateInfo[] = [
+  { fips: "01", abbr: "AL", name: "Alabama", ev: 9 },
+  { fips: "02", abbr: "AK", name: "Alaska", ev: 3 },
+  { fips: "04", abbr: "AZ", name: "Arizona", ev: 11 },
+  { fips: "05", abbr: "AR", name: "Arkansas", ev: 6 },
+  { fips: "06", abbr: "CA", name: "California", ev: 54 },
+  { fips: "08", abbr: "CO", name: "Colorado", ev: 10 },
+  { fips: "09", abbr: "CT", name: "Connecticut", ev: 7 },
+  { fips: "10", abbr: "DE", name: "Delaware", ev: 3 },
+  { fips: "11", abbr: "DC", name: "District of Columbia", ev: 3 },
+  { fips: "12", abbr: "FL", name: "Florida", ev: 30 },
+  { fips: "13", abbr: "GA", name: "Georgia", ev: 16 },
+  { fips: "15", abbr: "HI", name: "Hawaii", ev: 4 },
+  { fips: "16", abbr: "ID", name: "Idaho", ev: 4 },
+  { fips: "17", abbr: "IL", name: "Illinois", ev: 19 },
+  { fips: "18", abbr: "IN", name: "Indiana", ev: 11 },
+  { fips: "19", abbr: "IA", name: "Iowa", ev: 6 },
+  { fips: "20", abbr: "KS", name: "Kansas", ev: 6 },
+  { fips: "21", abbr: "KY", name: "Kentucky", ev: 8 },
+  { fips: "22", abbr: "LA", name: "Louisiana", ev: 8 },
+  { fips: "23", abbr: "ME", name: "Maine", ev: 4 },
+  { fips: "24", abbr: "MD", name: "Maryland", ev: 10 },
+  { fips: "25", abbr: "MA", name: "Massachusetts", ev: 11 },
+  { fips: "26", abbr: "MI", name: "Michigan", ev: 15 },
+  { fips: "27", abbr: "MN", name: "Minnesota", ev: 10 },
+  { fips: "28", abbr: "MS", name: "Mississippi", ev: 6 },
+  { fips: "29", abbr: "MO", name: "Missouri", ev: 10 },
+  { fips: "30", abbr: "MT", name: "Montana", ev: 4 },
+  { fips: "31", abbr: "NE", name: "Nebraska", ev: 5 },
+  { fips: "32", abbr: "NV", name: "Nevada", ev: 6 },
+  { fips: "33", abbr: "NH", name: "New Hampshire", ev: 4 },
+  { fips: "34", abbr: "NJ", name: "New Jersey", ev: 14 },
+  { fips: "35", abbr: "NM", name: "New Mexico", ev: 5 },
+  { fips: "36", abbr: "NY", name: "New York", ev: 28 },
+  { fips: "37", abbr: "NC", name: "North Carolina", ev: 16 },
+  { fips: "38", abbr: "ND", name: "North Dakota", ev: 3 },
+  { fips: "39", abbr: "OH", name: "Ohio", ev: 17 },
+  { fips: "40", abbr: "OK", name: "Oklahoma", ev: 7 },
+  { fips: "41", abbr: "OR", name: "Oregon", ev: 8 },
+  { fips: "42", abbr: "PA", name: "Pennsylvania", ev: 19 },
+  { fips: "44", abbr: "RI", name: "Rhode Island", ev: 4 },
+  { fips: "45", abbr: "SC", name: "South Carolina", ev: 9 },
+  { fips: "46", abbr: "SD", name: "South Dakota", ev: 3 },
+  { fips: "47", abbr: "TN", name: "Tennessee", ev: 11 },
+  { fips: "48", abbr: "TX", name: "Texas", ev: 40 },
+  { fips: "49", abbr: "UT", name: "Utah", ev: 6 },
+  { fips: "50", abbr: "VT", name: "Vermont", ev: 3 },
+  { fips: "51", abbr: "VA", name: "Virginia", ev: 13 },
+  { fips: "53", abbr: "WA", name: "Washington", ev: 12 },
+  { fips: "54", abbr: "WV", name: "West Virginia", ev: 4 },
+  { fips: "55", abbr: "WI", name: "Wisconsin", ev: 10 },
+  { fips: "56", abbr: "WY", name: "Wyoming", ev: 3 },
+];
+
+export const TOTAL_ELECTORAL_VOTES = 538;
+export const ELECTORAL_VOTES_TO_WIN = 270;
