@@ -94,8 +94,10 @@ export async function launchChrome({ args = [] } = {}) {
     const { targetId } = await send("Target.createTarget", { url: "about:blank" });
     const { sessionId } = await send("Target.attachToTarget", { targetId, flatten: true });
     const problems = [];
+    const eventListeners = new Set();
     listeners.add((message) => {
       if (message.sessionId !== sessionId) return;
+      for (const fn of eventListeners) fn(message);
       if (message.method === "Runtime.exceptionThrown") {
         const details = message.params.exceptionDetails;
         problems.push("exception: " + (details.exception?.description || details.text));
@@ -113,6 +115,10 @@ export async function launchChrome({ args = [] } = {}) {
     const page = {
       problems,
       call,
+      onEvent(fn) {
+        eventListeners.add(fn);
+        return () => eventListeners.delete(fn);
+      },
       async setViewport(nextWidth, nextHeight, nextMobile = false) {
         await call("Emulation.setDeviceMetricsOverride", {
           width: nextWidth,

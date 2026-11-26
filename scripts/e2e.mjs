@@ -46,7 +46,22 @@ const PLAY = `(async () => {
 
 const browser = await launchChrome();
 try {
+  const stubTelemetry = async (p) => {
+    if (!local) return;
+    await p.call("Fetch.enable", { patterns: [{ urlPattern: "https://rsio.org/*" }] });
+    p.onEvent?.((msg) => {
+      if (msg.method === "Fetch.requestPaused") {
+        p.call("Fetch.fulfillRequest", {
+          requestId: msg.params.requestId,
+          responseCode: 204,
+          responseHeaders: [{ name: "Access-Control-Allow-Origin", value: "*" }],
+          body: "",
+        }).catch(() => {});
+      }
+    });
+  };
   const page = await browser.newPage({ width: 1366, height: 900 });
+  await stubTelemetry(page);
   await page.goto(base);
 
   // ---- First visit ----
@@ -153,6 +168,7 @@ try {
 
   // ---- Phone ----
   const phone = await browser.newPage({ width: 390, height: 844, mobile: true });
+  await stubTelemetry(phone);
   await phone.goto(base);
   await phone.eval(`document.querySelector('[data-testid="intro-start"]')?.click(); ${tick}`);
   check((await phone.eval(overflow)) <= 1, "no sideways scroll on a phone");
