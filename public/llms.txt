@@ -1,0 +1,8 @@
+# PRES2028: Citizen (If We Were President)
+
+> Free browser-based incremental strategy game where players grow a party-less citizen campaign from one door knock to 270 electoral votes.
+
+## Pages
+
+- [Play](https://ifwewerepresident.com/): Main interactive campaign strategy game.
+- [Guide](https://ifwewerepresident.com/guide/): How the game mechanics and electoral map work.

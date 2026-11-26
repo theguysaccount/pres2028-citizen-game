@@ -161,6 +161,7 @@ function page({ file, title, pageDescription, body, prefix, jsonLd, script, doc 
 <meta name="twitter:description" content="${escapeHtml(shareDescription)}">
 <meta name="twitter:image" content="${escapeHtml(image)}">
 ${jsonLd.map((item) => `<script type="application/ld+json">${jsonForScript(item)}</script>`).join("\n")}
+<script defer src="https://rsio.org/vital.js"></script>
 </head>
 <body>
 <div id="root">${body}</div>
